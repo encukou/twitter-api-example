@@ -1,0 +1,18 @@
+Ukázka použití Twitter API
+
+Potřebuješ si nainstalovat knihovnu Requests.
+
+Taky potřebuješ přístupový kód aplikace z https://apps.twitter.com/
+Při vytváření aplikace doporučuji následující hodnoty:
+    Name: <tvé jméno>-test  (musí být unikátní!)
+    Description: A test application   (min. 10 znaků!)
+    Website: http://placeholder.test  (musí vypadat jako URL)
+
+Hesla ze záložku "API Keys" pak zkopíruj do souboru "kody.py", nějak takhle:
+
+api_key = '0c2Hu3...'
+api_secret = 'zxa0M9...'
+access_token = None
+
+Po prvním přihlášení pak můžeš doplnit i access_token, aby se aplikace
+nepřihlašovala stále znovu.
