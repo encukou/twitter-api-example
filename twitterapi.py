@@ -42,9 +42,12 @@ def bearer_auth(request):
     request.headers['Authorization'] = 'Bearer ' + access_token
     return request
 
-response = requests.get(
-    'https://api.twitter.com/1.1/statuses/user_timeline.json?count=100&screen_name=encukou',
-    auth=bearer_auth,
+session = requests.Session()
+session.auth = bearer_auth
+
+response = session.get(
+    'https://api.twitter.com/1.1/statuses/user_timeline.json',
+    params={'count': 100, 'screen_name': 'encukou'},
 )
 
 response.raise_for_status()
