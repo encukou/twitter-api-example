@@ -46,12 +46,17 @@ session = requests.Session()
 session.auth = bearer_auth
 
 response = session.get(
-    'https://api.twitter.com/1.1/statuses/user_timeline.json',
-    params={'count': 100, 'screen_name': 'encukou'},
+    'https://api.twitter.com/1.1/search/tweets.json',
+    params={'q': '#vesmír'},
 )
-
 response.raise_for_status()
+data = response.json()
 
-for tweet in response.json():
+#pprint.pprint(data)
+
+pprint.pprint(dict(response.headers))
+
+for tweet in data['statuses']:
+    print tweet['id_str']
     print tweet['text']
 
